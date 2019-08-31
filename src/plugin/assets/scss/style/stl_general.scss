@@ -1,0 +1,32 @@
+@include master-blocks {
+	position: relative;
+	.wrapper {
+		position: relative;
+		z-index: 5;
+	}
+	&::before,
+	&::after {
+		@include absolute-center;
+	}
+	mark {
+		background: none;
+	}
+	.title {
+		margin-bottom: baseline(1);
+	}
+	.content {
+		margin-bottom: baseline(1);
+	}
+	.button-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		> div {
+			margin: 0 10px;
+		}
+	}
+}
+
+body .header,
+body.home:not(.blog) .header {
+	z-index: 9;
+}

@@ -1,0 +1,46 @@
+@include master-blocks {
+	&.align-full {
+		@include align;
+	}
+}
+
+.align-full,
+.alignfull {
+	@include align;
+}
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin: baseline(1) baseline(2) baseline(1) 0;
+}
+
+.alignleft.wp-caption,
+img.alignleft {
+	@include media-breakpoint-up(lg) {
+		margin: baseline(1) baseline(2) baseline(1) baseline(-3);
+	}
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin: baseline(1) 0 baseline(1) baseline(2);
+}
+
+.alignright.wp-caption,
+img.alignright {
+	@include media-breakpoint-up(lg) {
+		margin: baseline(1) baseline(-3) baseline(1) baseline(2);
+	}
+}
+
+.aligncenter {
+	clear: both;
+	margin-bottom: baseline(2);
+	@include center-block;
+}
+
+.alignnone {
+	margin-bottom: baseline(2);
+}

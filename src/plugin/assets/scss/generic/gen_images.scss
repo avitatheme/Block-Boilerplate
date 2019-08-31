@@ -1,0 +1,10 @@
+img {
+	max-width: 100%; /* Make sure images are scaled correctly. */
+	&:not(.special) {
+		height: auto; /* Adhere to container width. */
+	}
+}
+
+picture {
+	display: inline-block;
+}

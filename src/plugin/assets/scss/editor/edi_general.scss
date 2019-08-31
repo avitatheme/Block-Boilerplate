@@ -1,0 +1,47 @@
+@include master-blocks {
+	.master-blocks {
+		&-overlay,
+		&-overlay-pattern {
+			@include absolute-center;
+		}
+	}
+	b,
+	strong {
+		font-weight: 600;
+	}
+}
+
+.editor-styles-wrapper {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
+
+.components-popover:not(.is-mobile).is-middle {
+	z-index: 999;
+}
+
+.editor-block-contextual-toolbar,
+.edit-post-header-toolbar__block-toolbar {
+	.components-color-palette__item-wrapper {
+		margin: 8px;
+		width: 20px;
+		height: 20px;
+	}
+	.components-color-palette__item:focus:after {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.components-range-control__number {
+	width: 53px;
+}
+
+.components-button-group .components-button.is-button:focus,
+.components-button-group .components-button.is-button.is-primary {
+	position: static;
+}
+
+.edit-post-visual-editor .editor-block-list__block[data-align="full"] > .editor-block-list__block-edit > .editor-block-contextual-toolbar {
+	//text-align: left;
+}

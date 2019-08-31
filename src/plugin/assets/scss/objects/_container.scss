@@ -1,0 +1,28 @@
+%container {
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $container-gutter;
+	padding-left: $container-gutter;
+	@each $breakpoint, $max-width in $container-max-widths {
+		@if $breakpoint == xl {
+			@include media-breakpoint-up($breakpoint) {
+				width: $max-width;
+			}
+		} @else {
+			@include media-breakpoint-only($breakpoint) {
+				width: $max-width;
+			}
+		}
+	}
+}
+
+%container-fluid {
+	width: auto;
+	@each $breakpoint, $gutter in $container-fluid-gutter {
+		@include media-breakpoint-up($breakpoint) {
+			padding-right: $gutter;
+			padding-left: $gutter;
+		}
+	}
+}

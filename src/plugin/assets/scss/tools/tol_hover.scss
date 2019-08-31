@@ -1,0 +1,21 @@
+@mixin hover {
+	&:hover {
+		@content;
+	}
+}
+
+@mixin hover-focus {
+	@if $enable_hover_media_query {
+		@include hover {
+			@content;
+		}
+		&:focus {
+			@content;
+		}
+	} @else {
+		&:focus,
+		&:hover {
+			@content;
+		}
+	}
+}

@@ -59,14 +59,19 @@ abstract class Core extends Singleton implements Bootable, Initable {
 
 	abstract public function register_frontend_assets();
 
-	abstract public function register_backend_assets();
+	abstract public function register_editor_assets();
+
+	abstract public function register_block_assets();
 
 	public function register_core() {
 		$this->frontend_assets = new Register_Assets($this->register_frontend_assets(), 'frontend');
 		$this->frontend_assets->boot();
 
-		$this->backend_assets = new Register_Assets($this->register_backend_assets(), 'backend');
-		$this->backend_assets->boot();
+		$this->editor_assets = new Register_Assets($this->register_editor_assets(), 'editor');
+		$this->editor_assets->boot();
+
+		$this->block_assets = new Register_Assets($this->register_block_assets(), 'block');
+		$this->block_assets->boot();
 	}
 
 	public function boot() {
@@ -75,7 +80,7 @@ abstract class Core extends Singleton implements Bootable, Initable {
 		register_activation_hook($this->main_plugin_file, [$this, 'install']);
 		register_deactivation_hook($this->main_plugin_file, [$this, 'uninstall']);
 
-		add_action('admin_enqueue_scripts', [$this, 'enqueue_backend_assets']);
+		add_action('admin_enqueue_scripts', [$this, 'enqueue_editor_assets']);
 		add_action('wp_enqueue_scripts', [$this, 'enqueue_frontend_assets']);
 	}
 
@@ -93,5 +98,7 @@ abstract class Core extends Singleton implements Bootable, Initable {
 
 	abstract public function enqueue_frontend_assets();
 
-	abstract public function enqueue_backend_assets();
+	abstract public function enqueue_editor_assets();
+
+	abstract public function enqueue_block_assets();
 }

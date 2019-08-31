@@ -1,0 +1,13 @@
+a {
+	color: $link_color;
+	text-decoration: none;
+	transition: all 0.3s ease-in;
+	@if $link_decoration {
+		box-shadow: 0 -#{$link_decoration_height} 0 0 transparent inset;
+		@include hover-focus {
+			box-shadow: 0 -#{$link_decoration_height} 0 0 $link_color inset;
+			color: $link_hover_color;
+			transition: all 0.3s ease-out;
+		}
+	}
+}

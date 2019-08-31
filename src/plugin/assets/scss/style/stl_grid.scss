@@ -1,0 +1,34 @@
+@include master-blocks {
+	.container {
+		@extend %container; /*!*/
+		&-fluid {
+			@extend %container-fluid; /*!*/
+		}
+	}
+	&.columns {
+		&-1 .wrapper {
+			@include grid(xl, 100%);
+			> div {
+				width: 100%;
+			}
+		}
+		&-2 .wrapper {
+			@include grid(xl, 1fr 1fr);
+			> div {
+				width: 100%;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.container {
+	@extend %container; /*!*/
+	&-fluid {
+		@extend %container-fluid; /*!*/
+	}
+}
+
+.site-main {
+	@extend %container; /*!*/
+}

@@ -1,0 +1,124 @@
+@mixin master-blocks {
+	[id^="master-blocks"][class^="master-blocks"] {
+		@content;
+	}
+}
+
+@mixin is-translated($width: 100%) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: auto;
+	width: $width;
+	transform: translate(-50%, -50%);
+}
+
+@mixin aspect-ratio($ratio-or-width, $height: null) {
+	$padding: if($height, percentage($height/$ratio-or-width), percentage(1 / $ratio-or-width));
+	display: inline-block;
+	&:before {
+		float: left;
+		padding-bottom: $padding;
+		content: "";
+	}
+	&:after {
+		display: table;
+		clear: both;
+		content: "";
+	}
+}
+
+@mixin align {
+	margin-right: calc(-100vw / 2 + 100% / 2);
+	margin-left: calc(-100vw / 2 + 100% / 2);
+	max-width: 100vw;
+}
+
+@mixin order($breakpoint, $order) {
+	@include media-breakpoint-up($breakpoint) {
+		order: #{$order};
+	}
+}
+
+@mixin pt($breakpoint, $i) {
+	@include media-breakpoint-up($breakpoint) {
+		padding-top: baseline($i);
+	}
+}
+
+@mixin pb($breakpoint, $i) {
+	@include media-breakpoint-up($breakpoint) {
+		padding-bottom: baseline($i);
+	}
+}
+
+@mixin pl($breakpoint, $i) {
+	@include media-breakpoint-up($breakpoint) {
+		padding-left: baseline($i);
+	}
+}
+
+@mixin pr($breakpoint, $i) {
+	@include media-breakpoint-up($breakpoint) {
+		padding-right: baseline($i);
+	}
+}
+
+@mixin mt($breakpoint, $i) {
+	@include media-breakpoint-up($breakpoint) {
+		margin-top: baseline($i);
+	}
+}
+
+@mixin mt($breakpoint, $i) {
+	@include media-breakpoint-up($breakpoint) {
+		margin-bottom: baseline($i);
+	}
+}
+
+@mixin typo($level, $breakpoint: body) {
+	@include media-breakpoint-up($breakpoint) {
+		font-size: fs($level);
+		line-height: _line-height($level);
+	}
+}
+
+@mixin grid($break_point, $grid_template_columns, $grid_column_gap: -1, $grid_row_gap: -1) {
+	display: grid;
+	grid-template-columns: 100%;
+	grid-column-gap: $grid-column-gap;
+	grid-row-gap: $grid-row-gap;
+	@include media-breakpoint-up($break_point) {
+		grid-template-columns: $grid_template_columns;
+		@if $grid_column_gap != -1 {
+			grid-column-gap: $grid_column_gap;
+		}
+		@if $grid_row_gap != -1 {
+			grid-row-gap: $grid_row_gap;
+		}
+		@content;
+	}
+}
+
+@mixin flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	@content;
+}
+
+@mixin absolute-center {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+
+@mixin center-block {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}

@@ -1,0 +1,33 @@
+///////// GENERAL /////////
+$enable_print_styles: true;
+$enable_hover_media_query: false;
+///////// COLOR /////////
+$selection_color: $white;
+$selection_bg_color: $black;
+///////// TYPO /////////
+$font_size_levels: (
+	meta: 0.7,
+	small: 0.8,
+	button: 0.875,
+	body: 1,
+	single: 1.125,
+	widget: 1.25,
+	h6: 1.4,
+	h5: 1.5,
+	h4: 2,
+	h3: 2.2,
+	h2: 2.5,
+	h1: 2.85,
+	big: 3,
+	ultra: 3.5,
+	mega: 5
+);
+///////// BODY /////////
+$body_color: $body_color;
+$body_bg: $white;
+$body_font_family: $base_font_family;
+///////// HEADING /////////
+$heading_color: $secondary_color;
+$heading_font_family: Montserrat, san-serif;
+///////// MAX WIDTH /////////
+$max_width: 30%, 35%, 40%, 45%, 50%, 55%, 60%, 65%, 70%, 80%;

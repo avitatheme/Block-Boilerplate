@@ -1,0 +1,11 @@
+/* no focus style for non-keyboard-inputs elements */
+*:focus {
+	outline: none;
+}
+
+/* and for keyboard users, override everything with
+   a Big Blue Border when focused on any element */
+body.user-is-tabbing *:focus {
+	outline: 2px solid #7aacfe !important; /* for non-webkit browsers */
+	outline: 5px auto -webkit-focus-ring-color !important;
+}

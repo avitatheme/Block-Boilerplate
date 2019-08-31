@@ -16,5 +16,10 @@ trait Core_Variables {
 	/**
 	 * @var Register_Assets
 	 */
-	public $backend_assets;
+	public $editor_assets;
+
+	/**
+	 * @var Register_Assets
+	 */
+	public $block_assets;
 }

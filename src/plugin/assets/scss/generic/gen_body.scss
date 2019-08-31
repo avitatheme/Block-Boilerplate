@@ -1,0 +1,17 @@
+@include master-blocks {
+	margin: 0;
+	padding-left: 0;
+	padding-right: 0;
+	color: $body_color;
+	word-wrap: break-word;
+	font-weight: $body_font_weight;
+	font-size: $base_font_size;
+	font-family: $body_font_family;
+	line-height: $base_line_height;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	p {
+		margin: 0 0 baseline(1);
+		padding: 0;
+	}
+}

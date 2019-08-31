@@ -1,6 +1,13 @@
 {
-	"presets": ["@babel/preset-env"],
+	"presets": ["@wordpress/default"],
 	"plugins": [
-		"transform-class-properties"
+		"transform-class-properties",
+		[
+			"@babel/plugin-transform-react-jsx",
+			{
+				"pragma": "wp.element.createElement",
+				"pragmaFrag": "wp.element.Fragment"
+			}
+		]
 	]
 }

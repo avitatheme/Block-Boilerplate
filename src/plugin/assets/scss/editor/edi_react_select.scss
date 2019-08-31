@@ -1,0 +1,15 @@
+.master-blocks-react-select {
+	&__control {
+		input[type="text"]:focus {
+			box-shadow: none !important;
+		}
+	}
+	&__indicator svg {
+		transform: scaleY(1) !important;
+	}
+	&__option {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}

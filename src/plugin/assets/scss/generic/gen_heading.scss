@@ -1,0 +1,23 @@
+%heading {
+	margin: 0 0 baseline(1);
+	padding: 0;
+	border: none;
+	color: $heading_color;
+	text-decoration: none;
+	font-weight: $heading_font_weight;
+	font-family: $heading_font_family;
+	&:before,
+	&:after {
+		display: none;
+	}
+}
+
+@for $i from 1 through 6 {
+	@include master-blocks {
+		h#{$i} {
+			@extend %heading; /*!*/
+			font-size: fs(h#{$i});
+			line-height: _line-height(h#{$i});
+		}
+	}
+}

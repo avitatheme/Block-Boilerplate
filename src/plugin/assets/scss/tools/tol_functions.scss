@@ -1,0 +1,48 @@
+@function _strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@function resunit($max, $min: $max/2) {
+	$max: _strip-unit($max);
+	$min: _strip-unit($min);
+	$min_width: _strip-unit(map_get($grid-breakpoints, sm));
+	$max_width: _strip-unit(map_get($grid-breakpoints, ul));
+	@return calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - #{$min_width}px) / (#{$max_width} - #{$min_width})));
+}
+
+@function _line-height($level) {
+	$l: map-get($font_size_levels, $level);
+	@if $l <= 1 {
+		@return $base_line_height;
+	} @else if $l <= 1.5 {
+		@return $base_line_height * 1.5;
+	} @else if $l <= 2 {
+		@return $base_line_height * 2;
+	} @else if $l <= 2.5 {
+		@return $base_line_height * 2.5;
+	} @else if $l <= 3 {
+		@return $base_line_height * 3;
+	} @else if $l <= 3.5 {
+		@return $base_line_height * 3.5;
+	} @else if $l <= 4 {
+		@return $base_line_height * 4;
+	} @else if $l <= 4.5 {
+		@return $base_line_height * 4.5;
+	} @else if $l <= 5 {
+		@return $base_line_height * 5;
+	} @else if $l <= 5.5 {
+		@return $base_line_height * 5.5;
+	} @else if $l <= 6 {
+		@return $base_line_height * 6;
+	} @else {
+		@return $base_line_height;
+	}
+}
+
+@function fs($level) {
+	@return ceil(map-get($font_size_levels, $level) * $base_font_size);
+}
+
+@function baseline($level) {
+	@return $base_line_height * $level;
+}
