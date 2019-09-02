@@ -47,7 +47,7 @@ abstract class Core extends Singleton implements Bootable, Initable {
 			'author' => $plugin['Author'],
 			'title' => $plugin['Title'],
 			'base' => plugin_basename($this->plugin_file),
-			'slug' => basename($this->plugin_file),
+			'slug' => basename($this->plugin_dir),
 			'path' => trailingslashit($this->plugin_dir),
 			'url' => plugin_dir_url($this->plugin_file),
 		];
